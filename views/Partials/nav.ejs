@@ -1,0 +1,133 @@
+<nav class="custom-navbar">
+
+    <div class="logo">
+        <a href="/">DeltaA Group</a>
+    </div>
+
+    <ul class="nav-links">
+         <li>
+            <a href="/">DaltaA</a>
+        </li>
+        <li>
+            <a href="/home-list" >Home</a>
+        </li>
+
+        <li>
+            <a href="/addHome">Add Home</a>
+        </li>
+        <li>
+            <a href="/Booking">Booking</a>
+        </li>
+         <li>
+            <a href="/host-home">Host-Home</a>
+        </li>
+         <li>
+            <a href="/favaravite-list">Favarite-list</a>
+        </li>
+    </ul>
+
+</nav>
+
+<style>
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 70px; /* navbar space fix */
+}
+
+/* NAVBAR */
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+/* LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* LINK STYLE */
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+
+    padding: 10px 16px;
+    border-radius: 8px;
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.nav-links li a:hover {
+    background-color: #4f46e5;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ACTIVE */
+.nav-links li .active {
+    background-color: #4f46e5;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .custom-navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+
+    body {
+        padding-top: 120px; /* mobile adjustment */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        display: block;
+        width: 100%;
+    }
+}
+</style>

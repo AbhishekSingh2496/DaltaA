@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/Home.css">
+<%- include('../partials/head') %>
+</head>
+<body>
+<main class="home-container">
+    <%- include('../Partials/nav') %>
+   <div class="homes-wrapper">
+     <div class="homes-header">
+         <h2>Here is all the Favaraite List of Home</h2>
+        <p>Manage and explore your added homes</p>
+    </div>
+   
+
+   <div class="homes-grid">
+
+    <% if (RegisteredHomes && RegisteredHomes.length > 0) { %>
+
+        <% RegisteredHomes.forEach(function(home){ %>
+
+            <div class="home-card">
+
+                <!-- HOME IMAGE -->
+                <div class="home-image">
+                    <img src="<%= home.image %>" alt="Home Image">
+                </div>
+
+                <!-- CONTENT -->
+                <div class="home-content">
+
+                    <h3><%= home.homeName %></h3>
+
+                    <p class="home-city">
+                        📍 <%= home.city %>
+                    </p>
+
+                    <p class="home-price">
+                        💰 ₹ <%= home.price %>
+                    </p>
+
+                    <p class="home-rooms">
+                        🛏️ <%= home.rooms %> Rooms
+                    </p>
+                    <p class="home-rating">
+                    ⭐ <%= home.rating %> / 5
+                    </p>
+                    <span class="home-badge">
+                        Active
+                    </span>
+
+                </div>
+
+               <!-- BUTTONS -->
+<div class="home-action">
+    <button onclick="viewHome('<%= home._id %>')">
+        View
+    </button>
+
+    <button onclick="bookHome('<%= home._id %>')">
+        Booking
+    </button>
+</div>
+            </div>
+
+        <% }) %>
+
+    <% } else { %>
+
+        <div class="empty-state">
+            🏡 No homes registered yet
+            <p>Add your first home to get started</p>
+        </div>
+
+    <% } %>
+
+</div>
+    <%- include('../Partials/footer') %>
+</main>
+
+</body>
+</html>
