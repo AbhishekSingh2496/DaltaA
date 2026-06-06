@@ -1,4 +1,3 @@
-const Home1 = require("../modoles/Home");
 const Home=require("../modoles/Home");
 exports.getHome = (req, res,next) => {
    Home.fetchAll((RegisteredHomes)=>{
@@ -19,6 +18,10 @@ exports.GetFavaravitelist= (req, res,next) => {
     });
    });
 };
+exports.PostFavaravite= (req, res,next) => {
+     console.log("Came to add to Favaraite",req.body);
+     res.redirect("/favorites");
+};
 exports.GetIndex= (req, res,next) => {
      Home.fetchAll((RegisteredHomes)=>{
      res.render('store/index',{ 
@@ -30,7 +33,7 @@ exports.GetIndex= (req, res,next) => {
 exports.getHomeDetails= (req, res,next) => {
     const homeId=req.params.homeId;
     console.log("Home Id",homeId);
-    Home1.findById(homeId, (home)=>{
+    Home.findById(homeId, (home)=>{
         if(!home){
             console.log("Id not found");
             res.redirect("/home-list")

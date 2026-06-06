@@ -146,69 +146,49 @@ body{
     }
 }
 </style>
-
 <%- include('../partials/head') %>
-
 </head>
-
 <body>
-
 <%- include('../partials/nav') %>
-
 <div class="details-wrapper">
-
     <div class="home-card">
-
         <!-- IMAGE -->
         <div class="home-image">
             <img src="<%= home.image %>" alt="Home Image">
         </div>
-
         <!-- CONTENT -->
         <div class="home-content">
-
             <h1><%= home.homeName %></h1>
-
             <p>
                 📍 <strong>City:</strong> <%= home.city %>
             </p>
-
             <p>
                 💰 <strong>Price:</strong> ₹ <%= home.price %>
             </p>
-
             <p>
                 🛏️ <strong>Rooms:</strong> <%= home.rooms %>
             </p>
-
             <p class="home-rating">
                 ⭐ <%= home.rating %> / 5
             </p>
-
             <span class="home-badge">
                 Active
             </span>
-
+            <div style="margin-top:5px;">
+                <%- include('../Partials/favorites') %>
+            </div>
             <!-- BUTTONS -->
             <div class="home-actions">
-
                 <a href="/home-list" class="btn btn-secondary">
                     Back
                 </a>
-
                 <a href="/Booking" class="btn btn-primary">
                     Book Now
                 </a>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
-
 <%- include('../partials/footer') %>
-
 </body>
 </html>

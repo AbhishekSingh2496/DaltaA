@@ -4,7 +4,7 @@ const rootDir=require("../utils/path");
 const { json } = require('stream/consumers');
 const homeDataPath=path.join(rootDir,'data','Home.json');
 const RegisteredHomes = [];
-module.exports=class Home1{
+module.exports=class Home{
     constructor(homeName,price,city,rooms,image,rating){
         this.homeName=homeName;
         this.price=price;
@@ -17,7 +17,7 @@ save(){
 this.id=Math.random().toString();
 Home.fetchAll((RegisteredHomes)=>{
     RegisteredHomes.push(this);
-    fs.writeFile(filePath,JSON.stringify(RegisteredHomes),(err)=>{
+    fs.writeFile(homeDataPath,JSON.stringify(RegisteredHomes),(err)=>{
         console.log("file writing included",err);
     });
     });

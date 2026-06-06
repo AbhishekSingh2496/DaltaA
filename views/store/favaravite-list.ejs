@@ -14,9 +14,7 @@
    <div class="homes-grid">
 
     <% if (RegisteredHomes && RegisteredHomes.length > 0) { %>
-
         <% RegisteredHomes.forEach(function(home){ %>
-
             <div class="home-card">
 
                 <!-- HOME IMAGE -->
@@ -46,9 +44,8 @@
                     <span class="home-badge">
                         Active
                     </span>
-
+                     <%- include('../Partials/favorites') %>
                 </div>
-
                <!-- BUTTONS -->
 <div class="home-action">
     <button onclick="viewHome('<%= home._id %>')">
@@ -59,22 +56,16 @@
         Booking
     </button>
 </div>
-            </div>
-
-        <% }) %>
-
-    <% } else { %>
-
-        <div class="empty-state">
+</div>
+<% }) %>
+<% } else { %>
+<div class="empty-state">
             🏡 No homes registered yet
             <p>Add your first home to get started</p>
-        </div>
-
-    <% } %>
-
+</div>
+<% } %>
 </div>
     <%- include('../Partials/footer') %>
 </main>
-
 </body>
 </html>
