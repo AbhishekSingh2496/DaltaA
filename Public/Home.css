@@ -1,4 +1,19 @@
 /* PAGE WRAPPER */
+.empty-state {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.empty-state p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+.homes-grid {
+    justify-content: center;
+}
 .button1 {
     text-decoration: none;
     color: white;
@@ -34,15 +49,17 @@
 /* GRID */
 .homes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, 320px);
+    justify-content: center;
+    gap: 100px;
     max-width: 1200px;
-    margin: auto;
-    align-items: stretch;
+    margin-left: 20px;
+margin-right: 20px;
 }
 
 /* CARD */
 .home-card {
+    width: 380px;
     background: #fff;
     border-radius: 18px;
     overflow: hidden;

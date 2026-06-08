@@ -13,8 +13,8 @@
 
    <div class="homes-grid">
 
-    <% if (RegisteredHomes && RegisteredHomes.length > 0) { %>
-        <% RegisteredHomes.forEach(function(home){ %>
+    <% if (favoriteHomes && favoriteHomes.length > 0) { %>
+    <% favoriteHomes.forEach(function(home){ %>
             <div class="home-card">
 
                 <!-- HOME IMAGE -->
@@ -44,7 +44,7 @@
                     <span class="home-badge">
                         Active
                     </span>
-                     <%- include('../Partials/favorites') %>
+                     <!-- <%- include('../Partials/favorites',{home: home}) %> -->
                 </div>
                <!-- BUTTONS -->
 <div class="home-action">

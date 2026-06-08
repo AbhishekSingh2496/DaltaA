@@ -1,3 +1,4 @@
+const favorites = require("../modoles/favorites");
 const Home=require("../modoles/Home");
 exports.getHome = (req, res,next) => {
    Home.fetchAll((RegisteredHomes)=>{
@@ -10,17 +11,32 @@ exports.getHome = (req, res,next) => {
 exports.GetBooking = (req, res,next) => {
     res.render('store/Booking', { pageTitle: "Booking" });
 };
-exports.GetFavaravitelist= (req, res,next) => {
-     Home.fetchAll((RegisteredHomes)=>{
-     res.render('store/favaravite-list',{ 
-        RegisteredHomes,
-        pageTitle:"Favariate-List Page"
+exports.GetFavaravitelist = (req, res, next) => {
+    favorites.getFavorites((favoriteIds) => {
+
+        Home.fetchAll((RegisteredHomes) => {
+
+            const favoriteHomes = RegisteredHomes.filter(
+                home => favoriteIds.includes(String(home.id))
+            );
+
+            res.render('store/favaravite-list', {
+                favoriteHomes,
+                pageTitle: "Favariate-List Page"
+            });
+
+        });
+
     });
-   });
 };
 exports.PostFavaravite= (req, res,next) => {
      console.log("Came to add to Favaraite",req.body);
-     res.redirect("/favorites");
+     favorites.addtoFavorites(req.body.id,err =>{
+         if(err){
+             console.error("Error adding to favorites:", err);
+         }
+         res.redirect("/favorites");
+     })
 };
 exports.GetIndex= (req, res,next) => {
      Home.fetchAll((RegisteredHomes)=>{

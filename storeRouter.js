@@ -8,7 +8,7 @@ storeRouter.use((req, res, next) => {
 storeRouter.get("/", ControllerTest1.GetIndex);
 storeRouter.get("/home-list", ControllerTest1.getHome);
 storeRouter.get("/Booking", ControllerTest1.GetBooking);
-storeRouter.get("/favaravite-list", ControllerTest1.GetFavaravitelist);
+storeRouter.get("/favorites", ControllerTest1.GetFavaravitelist);
 storeRouter.get("/home-list/:homeId", ControllerTest1.getHomeDetails);
 storeRouter.post("/favorites", ControllerTest1.PostFavaravite);
 exports.storeRouter=storeRouter;
